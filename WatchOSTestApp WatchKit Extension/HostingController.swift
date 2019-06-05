@@ -10,8 +10,17 @@ import WatchKit
 import Foundation
 import SwiftUI
 
-class HostingController : WKHostingController<ContentView> {
-    override var body: ContentView {
-        return ContentView()
+class HostingController : WKHostingController<LoginView> {
+    override var body: LoginView {
+        return LoginView(delegate: self)
+    }
+}
+
+extension HostingController: LoginDelegate {
+    func loginPressed(username: String, password: String, completion: @escaping (Bool, String?) -> Void) {
+        print("\(username) \(password)")
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            completion(true, "LPN1234567890")
+        }
     }
 }

@@ -18,6 +18,7 @@
 		299CD9A622A8632F00BA2C5A /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299CD9A522A8632F00BA2C5A /* NotificationView.swift */; };
 		299CD9A822A8632F00BA2C5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 299CD9A722A8632F00BA2C5A /* Assets.xcassets */; };
 		299CD9AB22A8632F00BA2C5A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 299CD9AA22A8632F00BA2C5A /* Preview Assets.xcassets */; };
+		299CD9BC22A8643000BA2C5A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299CD9BB22A8643000BA2C5A /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		299CD9AA22A8632F00BA2C5A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		299CD9AC22A8632F00BA2C5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		299CD9AD22A8632F00BA2C5A /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		299CD9BB22A8643000BA2C5A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +125,9 @@
 		299CD99C22A8632F00BA2C5A /* WatchOSTestApp WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				299CD99D22A8632F00BA2C5A /* ContentView.swift */,
+				299CD9BB22A8643000BA2C5A /* LoginView.swift */,
 				299CD99F22A8632F00BA2C5A /* HostingController.swift */,
+				299CD99D22A8632F00BA2C5A /* ContentView.swift */,
 				299CD9A122A8632F00BA2C5A /* ExtensionDelegate.swift */,
 				299CD9A322A8632F00BA2C5A /* NotificationController.swift */,
 				299CD9A522A8632F00BA2C5A /* NotificationView.swift */,
@@ -272,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				299CD9BC22A8643000BA2C5A /* LoginView.swift in Sources */,
 				299CD9A022A8632F00BA2C5A /* HostingController.swift in Sources */,
 				299CD99E22A8632F00BA2C5A /* ContentView.swift in Sources */,
 				299CD9A422A8632F00BA2C5A /* NotificationController.swift in Sources */,
