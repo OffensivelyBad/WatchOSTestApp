@@ -17,10 +17,10 @@ class HostingController : WKHostingController<LoginView> {
 }
 
 extension HostingController: LoginDelegate {
-    func loginPressed(username: String, password: String, completion: @escaping (Bool, String?) -> Void) {
+    func loginPressed(username: String, password: String, completion: @escaping (Bool, String?, String?) -> Void) {
         print("\(username) \(password)")
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-            completion(true, "LPN1234567890")
+            completion(true, "LPN1234567890", "A15-01-1-1")
         }
     }
 }

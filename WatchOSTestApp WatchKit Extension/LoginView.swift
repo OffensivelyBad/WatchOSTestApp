@@ -9,7 +9,7 @@
 import SwiftUI
 
 protocol LoginDelegate {
-    func loginPressed(username: String, password: String, completion: @escaping (Bool, String?) -> Void)
+    func loginPressed(username: String, password: String, completion: @escaping (Bool, String?, String?) -> Void)
 }
 
 struct LoginView : View {
@@ -19,27 +19,33 @@ struct LoginView : View {
     @State private var loading: Bool = false
     @State private var isLoggedIn: Bool = false
     @State private var lpn: String = ""
+    @State private var location: String = ""
     
     var body: some View {
         ZStack {
             if isLoggedIn {
                 VStack {
-                    Text("Scan LPN")
-                        .font(.largeTitle)
+                    Spacer()
+                    Text(location)
+                        .font(.title)
+                    Spacer()
                     HStack {
-                        Text(lpn)
-                            .font(.body)
+                        Text(self.shortLPN(from: lpn))
+                            .font(.system(size: 80))
                             .color(.yellow)
                     }
+                    Spacer()
                 }
             } else {
                 VStack {
+                    Spacer()
                     TextField($username, placeholder: Text("username"))
                     TextField($password, placeholder: Text("password"))
                     Button(action: {
-                        self.delegate?.loginPressed(username: self.username, password: self.password, completion: { (complete, lpn) in
+                        self.delegate?.loginPressed(username: self.username, password: self.password, completion: { (complete, lpn, location) in
                             self.isLoggedIn.toggle()
                             self.lpn = lpn ?? ""
+                            self.location = location ?? ""
                         })
                     })
                     {
@@ -48,6 +54,10 @@ struct LoginView : View {
                 }
             }
         }
+    }
+    
+    func shortLPN(from lpn: String) -> String {
+        return String(lpn.suffix(4))
     }
     
     
