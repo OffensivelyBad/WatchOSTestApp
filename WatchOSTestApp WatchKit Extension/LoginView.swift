@@ -40,17 +40,24 @@ struct LoginView : View {
                 VStack {
                     Spacer()
                     TextField($username, placeholder: Text("username"))
-                    TextField($password, placeholder: Text("password"))
+                    SecureField($password, placeholder: Text("password"))
                     Button(action: {
-                        self.delegate?.loginPressed(username: self.username, password: self.password, completion: { (complete, lpn, location) in
-                            self.isLoggedIn.toggle()
-                            self.lpn = lpn ?? ""
-                            self.location = location ?? ""
+                        self.loading.toggle()
+                        self.delegate?.loginPressed(username: self.username, password: self.password, completion: { (success, lpn, location) in
+                            if success {
+                                self.isLoggedIn.toggle()
+                                self.lpn = lpn ?? ""
+                                self.location = location ?? ""
+                            } else {
+                                self.loading.toggle()
+                            }
                         })
                     })
                     {
-                        Text("Login")
+                        Text(self.loading ? "Logging in..." : "Login")
                     }
+                    .disabled(self.loading)
+                    .opacity(self.loading ? 0.5 : 1)
                 }
             }
         }
