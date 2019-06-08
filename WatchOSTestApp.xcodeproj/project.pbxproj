@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2930D47522AC22E20069A441 /* LPNView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2930D47422AC22E20069A441 /* LPNView.swift */; };
 		299CD98A22A8632D00BA2C5A /* WatchOSTestApp WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 299CD98922A8632D00BA2C5A /* WatchOSTestApp WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		299CD99022A8632E00BA2C5A /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299CD98E22A8632E00BA2C5A /* Interface.storyboard */; };
 		299CD99222A8632F00BA2C5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 299CD99122A8632F00BA2C5A /* Assets.xcassets */; };
@@ -64,6 +65,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2930D47422AC22E20069A441 /* LPNView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPNView.swift; sourceTree = "<group>"; };
 		299CD98522A8632D00BA2C5A /* WatchOSTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchOSTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		299CD98922A8632D00BA2C5A /* WatchOSTestApp WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchOSTestApp WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		299CD98F22A8632E00BA2C5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				299CD9BB22A8643000BA2C5A /* LoginView.swift */,
+				2930D47422AC22E20069A441 /* LPNView.swift */,
 				299CD99F22A8632F00BA2C5A /* HostingController.swift */,
 				299CD99D22A8632F00BA2C5A /* ContentView.swift */,
 				299CD9A122A8632F00BA2C5A /* ExtensionDelegate.swift */,
@@ -280,6 +283,7 @@
 				299CD99E22A8632F00BA2C5A /* ContentView.swift in Sources */,
 				299CD9A422A8632F00BA2C5A /* NotificationController.swift in Sources */,
 				299CD9A222A8632F00BA2C5A /* ExtensionDelegate.swift in Sources */,
+				2930D47522AC22E20069A441 /* LPNView.swift in Sources */,
 				299CD9A622A8632F00BA2C5A /* NotificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

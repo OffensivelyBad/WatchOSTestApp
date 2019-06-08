@@ -24,18 +24,7 @@ struct LoginView : View {
     var body: some View {
         ZStack {
             if isLoggedIn {
-                VStack {
-                    Spacer()
-                    Text(location)
-                        .font(.title)
-                    Spacer()
-                    HStack {
-                        Text(self.shortLPN(from: lpn))
-                            .font(.system(size: 80))
-                            .color(.yellow)
-                    }
-                    Spacer()
-                }
+                LPNView(location: $location, lpn: $lpn)
             } else {
                 VStack {
                     Spacer()
@@ -61,10 +50,6 @@ struct LoginView : View {
                 }
             }
         }
-    }
-    
-    func shortLPN(from lpn: String) -> String {
-        return String(lpn.suffix(4))
     }
     
     
