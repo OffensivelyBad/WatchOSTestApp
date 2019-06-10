@@ -9,7 +9,7 @@
 import SwiftUI
 
 protocol LoginDelegate {
-    func loginPressed(username: String, password: String, completion: @escaping (Bool, String?, String?) -> Void)
+    func loginPressed(username: String, password: String, completion: @escaping (_ success: Bool, _ location: String?, _ lpn: String?) -> Void)
 }
 
 struct LoginView : View {
@@ -32,7 +32,7 @@ struct LoginView : View {
                     SecureField($password, placeholder: Text("password"))
                     Button(action: {
                         self.loading.toggle()
-                        self.delegate?.loginPressed(username: self.username, password: self.password, completion: { (success, lpn, location) in
+                        self.delegate?.loginPressed(username: self.username, password: self.password, completion: { (success, location, lpn) in
                             if success {
                                 self.isLoggedIn.toggle()
                                 self.lpn = lpn ?? ""

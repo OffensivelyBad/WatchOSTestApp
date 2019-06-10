@@ -17,10 +17,41 @@ class HostingController : WKHostingController<LoginView> {
 }
 
 extension HostingController: LoginDelegate {
-    func loginPressed(username: String, password: String, completion: @escaping (Bool, String?, String?) -> Void) {
-        print("\(username) \(password)")
+    func loginPressed(username: String, password: String, completion: @escaping (_ success: Bool, _ location: String?, _ lpn: String?) -> Void) {
+        let failureCompletion: () -> Void = { () in
+            completion(false, nil, nil)
+        }
+        
+        let pickCompletion: (String?, String?) -> Void = { (location, lpnString) in
+            if let loc = location, let lpn = lpnString {
+                completion(true, loc, lpn)
+            } else {
+                failureCompletion()
+            }
+        }
+        
+        let loginCompletion: (Bool) -> Void = { success in
+            if success {
+                self.getNextPick { (location, lpn) in
+                    pickCompletion(location, lpn)
+                }
+            } else {
+                failureCompletion()
+            }
+        }
+        
+        self.login(with: username, and: password, completion: loginCompletion)
+    }
+    
+    private func login(with username: String, and password: String, completion: @escaping (_ success: Bool) -> Void) {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-            completion(true, "LPN1234567890", "A15-01-1-1")
+            completion(true)
+        }
+    }
+    
+    private func getNextPick(completion: @escaping (_ location: String?, _ lpn: String?) -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            completion("A15-08-8-8", "LPN0987654321")
         }
     }
 }
