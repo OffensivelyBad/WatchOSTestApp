@@ -12,18 +12,33 @@ protocol LoginDelegate {
     func loginPressed(username: String, password: String, completion: @escaping (_ success: Bool, _ pick: PickModel?) -> Void)
 }
 
+enum PickStep {
+    case lpn, sku
+}
+
 struct LoginView : View {
+    let UI_TESTING = true
+    
     var delegate: LoginDelegate?
     @State private var username: String = ""
     @State private var password: String = ""
     @State private var loading: Bool = false
     @State private var isLoggedIn: Bool = false
     @State private var pick: PickModel = PickModel(lpn: "", sku: "", location: "")
+    @State private var pickStep: PickStep = .lpn
     
     var body: some View {
         ZStack {
             if isLoggedIn {
-                PickView(pick: $pick)
+                PickView(pick: $pick, pickStep: $pickStep)
+                if UI_TESTING {
+                    Button(action: {
+                        self.pickStep = self.pickStep == .lpn ? .sku : .lpn
+                    })
+                    {
+                        Text("Scan Sim")
+                    }
+                }
             } else {
                 VStack {
                     Spacer()
@@ -32,9 +47,7 @@ struct LoginView : View {
                     Button(action: {
                         self.loading.toggle()
                         self.delegate?.loginPressed(username: self.username, password: self.password, completion: { (success, pick) in
-                            guard success, let pick = pick else { self.loading.toggle(); return }
-                            self.isLoggedIn.toggle()
-                            self.pick = pick
+                            self.afterLogin(success: success, pick: pick)
                         })
                     })
                     {
@@ -47,6 +60,12 @@ struct LoginView : View {
         }
     }
     
+    private func afterLogin(success: Bool, pick: PickModel?) {
+        guard success, let pick = pick else { self.loading.toggle(); return }
+        self.isLoggedIn.toggle()
+        self.pick = pick
+        self.pickStep = .lpn
+    }
     
 }
 

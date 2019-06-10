@@ -10,15 +10,18 @@ import SwiftUI
 
 struct PickView : View {
     @Binding var pick: PickModel
+    @Binding var pickStep: PickStep
     
     var body: some View {
         VStack {
             Text(pick.location)
-                .font(.title)
-            Text(pick.shortLPN)
-                .font(.system(size: 80))
-                .color(.yellow)
-            Text(pick.lpn)
+                .font(.system(size: 25))
+            Spacer()
+            Text(pickStep == .lpn ? pick.shortLPN : "Scan SKU")
+                .font(.system(size: pickStep == .lpn ? 80 : 40))
+                .color(pickStep == .lpn ? .yellow : .blue)
+            Spacer()
+            Text(pickStep == .lpn ? pick.lpn : pick.sku)
                 .font(.footnote)
         }
     }
