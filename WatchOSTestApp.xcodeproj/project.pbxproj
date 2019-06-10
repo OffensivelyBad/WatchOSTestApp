@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2930D47522AC22E20069A441 /* LPNView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2930D47422AC22E20069A441 /* LPNView.swift */; };
+		2930D47522AC22E20069A441 /* PickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2930D47422AC22E20069A441 /* PickView.swift */; };
+		293A6F0C22AE0AC600081ABA /* PickModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293A6F0B22AE0AC600081ABA /* PickModel.swift */; };
+		293A6F0E22AE0D4300081ABA /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293A6F0D22AE0D4300081ABA /* DataManager.swift */; };
+		293A6F1022AE0D4D00081ABA /* MockDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293A6F0F22AE0D4D00081ABA /* MockDataManager.swift */; };
 		299CD98A22A8632D00BA2C5A /* WatchOSTestApp WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 299CD98922A8632D00BA2C5A /* WatchOSTestApp WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		299CD99022A8632E00BA2C5A /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299CD98E22A8632E00BA2C5A /* Interface.storyboard */; };
 		299CD99222A8632F00BA2C5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 299CD99122A8632F00BA2C5A /* Assets.xcassets */; };
 		299CD99922A8632F00BA2C5A /* WatchOSTestApp WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 299CD99822A8632F00BA2C5A /* WatchOSTestApp WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		299CD99E22A8632F00BA2C5A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299CD99D22A8632F00BA2C5A /* ContentView.swift */; };
 		299CD9A022A8632F00BA2C5A /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299CD99F22A8632F00BA2C5A /* HostingController.swift */; };
 		299CD9A222A8632F00BA2C5A /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299CD9A122A8632F00BA2C5A /* ExtensionDelegate.swift */; };
 		299CD9A422A8632F00BA2C5A /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299CD9A322A8632F00BA2C5A /* NotificationController.swift */; };
@@ -65,14 +67,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2930D47422AC22E20069A441 /* LPNView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPNView.swift; sourceTree = "<group>"; };
+		2930D47422AC22E20069A441 /* PickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickView.swift; sourceTree = "<group>"; };
+		293A6F0B22AE0AC600081ABA /* PickModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickModel.swift; sourceTree = "<group>"; };
+		293A6F0D22AE0D4300081ABA /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		293A6F0F22AE0D4D00081ABA /* MockDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataManager.swift; sourceTree = "<group>"; };
 		299CD98522A8632D00BA2C5A /* WatchOSTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchOSTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		299CD98922A8632D00BA2C5A /* WatchOSTestApp WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchOSTestApp WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		299CD98F22A8632E00BA2C5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		299CD99122A8632F00BA2C5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		299CD99322A8632F00BA2C5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		299CD99822A8632F00BA2C5A /* WatchOSTestApp WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchOSTestApp WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		299CD99D22A8632F00BA2C5A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		299CD99F22A8632F00BA2C5A /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
 		299CD9A122A8632F00BA2C5A /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		299CD9A322A8632F00BA2C5A /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
@@ -95,6 +99,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		293A6F0722AE0A8D00081ABA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				299CD99F22A8632F00BA2C5A /* HostingController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		293A6F0822AE0A9800081ABA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				299CD9BB22A8643000BA2C5A /* LoginView.swift */,
+				2930D47422AC22E20069A441 /* PickView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		293A6F0922AE0AA700081ABA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				293A6F0B22AE0AC600081ABA /* PickModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		293A6F0A22AE0AAD00081ABA /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				293A6F0D22AE0D4300081ABA /* DataManager.swift */,
+				293A6F0F22AE0D4D00081ABA /* MockDataManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		299CD97E22A8632D00BA2C5A = {
 			isa = PBXGroup;
 			children = (
@@ -127,10 +165,10 @@
 		299CD99C22A8632F00BA2C5A /* WatchOSTestApp WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				299CD9BB22A8643000BA2C5A /* LoginView.swift */,
-				2930D47422AC22E20069A441 /* LPNView.swift */,
-				299CD99F22A8632F00BA2C5A /* HostingController.swift */,
-				299CD99D22A8632F00BA2C5A /* ContentView.swift */,
+				293A6F0A22AE0AAD00081ABA /* Manager */,
+				293A6F0922AE0AA700081ABA /* Model */,
+				293A6F0822AE0A9800081ABA /* View */,
+				293A6F0722AE0A8D00081ABA /* Controller */,
 				299CD9A122A8632F00BA2C5A /* ExtensionDelegate.swift */,
 				299CD9A322A8632F00BA2C5A /* NotificationController.swift */,
 				299CD9A522A8632F00BA2C5A /* NotificationView.swift */,
@@ -279,11 +317,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				299CD9BC22A8643000BA2C5A /* LoginView.swift in Sources */,
+				293A6F1022AE0D4D00081ABA /* MockDataManager.swift in Sources */,
+				293A6F0E22AE0D4300081ABA /* DataManager.swift in Sources */,
+				293A6F0C22AE0AC600081ABA /* PickModel.swift in Sources */,
 				299CD9A022A8632F00BA2C5A /* HostingController.swift in Sources */,
-				299CD99E22A8632F00BA2C5A /* ContentView.swift in Sources */,
 				299CD9A422A8632F00BA2C5A /* NotificationController.swift in Sources */,
 				299CD9A222A8632F00BA2C5A /* ExtensionDelegate.swift in Sources */,
-				2930D47522AC22E20069A441 /* LPNView.swift in Sources */,
+				2930D47522AC22E20069A441 /* PickView.swift in Sources */,
 				299CD9A622A8632F00BA2C5A /* NotificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

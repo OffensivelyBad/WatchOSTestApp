@@ -9,7 +9,7 @@
 import SwiftUI
 
 protocol LoginDelegate {
-    func loginPressed(username: String, password: String, completion: @escaping (_ success: Bool, _ location: String?, _ lpn: String?) -> Void)
+    func loginPressed(username: String, password: String, completion: @escaping (_ success: Bool, _ pick: PickModel?) -> Void)
 }
 
 struct LoginView : View {
@@ -18,13 +18,12 @@ struct LoginView : View {
     @State private var password: String = ""
     @State private var loading: Bool = false
     @State private var isLoggedIn: Bool = false
-    @State private var lpn: String = ""
-    @State private var location: String = ""
+    @State private var pick: PickModel = PickModel(lpn: "", sku: "", location: "")
     
     var body: some View {
         ZStack {
             if isLoggedIn {
-                LPNView(location: $location, lpn: $lpn)
+                PickView(pick: $pick)
             } else {
                 VStack {
                     Spacer()
@@ -32,14 +31,10 @@ struct LoginView : View {
                     SecureField($password, placeholder: Text("password"))
                     Button(action: {
                         self.loading.toggle()
-                        self.delegate?.loginPressed(username: self.username, password: self.password, completion: { (success, location, lpn) in
-                            if success {
-                                self.isLoggedIn.toggle()
-                                self.lpn = lpn ?? ""
-                                self.location = location ?? ""
-                            } else {
-                                self.loading.toggle()
-                            }
+                        self.delegate?.loginPressed(username: self.username, password: self.password, completion: { (success, pick) in
+                            guard success, let pick = pick else { self.loading.toggle(); return }
+                            self.isLoggedIn.toggle()
+                            self.pick = pick
                         })
                     })
                     {
@@ -55,10 +50,3 @@ struct LoginView : View {
     
 }
 
-#if DEBUG
-struct LoginView_Previews : PreviewProvider {
-    static var previews: some View {
-        LoginView()
-    }
-}
-#endif

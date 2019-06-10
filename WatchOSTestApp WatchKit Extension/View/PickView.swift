@@ -1,5 +1,5 @@
 //
-//  LPNView.swift
+//  PickView.swift
 //  WatchOSTestApp WatchKit Extension
 //
 //  Created by Shawn Roller on 6/8/19.
@@ -8,23 +8,18 @@
 
 import SwiftUI
 
-struct LPNView : View {
-    @Binding var location: String
-    @Binding var lpn: String
+struct PickView : View {
+    @Binding var pick: PickModel
     
     var body: some View {
         VStack {
-            Text(location)
+            Text(pick.location)
                 .font(.title)
-            Text(self.shortLPN(from: lpn))
+            Text(pick.shortLPN)
                 .font(.system(size: 80))
                 .color(.yellow)
-            Text(lpn)
+            Text(pick.lpn)
                 .font(.footnote)
         }
-    }
-    
-    func shortLPN(from lpn: String) -> String {
-        return String(lpn.suffix(4))
     }
 }
