@@ -28,36 +28,56 @@ struct LoginView : View {
     @State private var pickStep: PickStep = .lpn
     
     var body: some View {
+//        ZStack {
+//            if isLoggedIn {
+//                PickView(pick: $pick, pickStep: $pickStep)
+//                if UI_TESTING {
+//                    Button(action: {
+//                        self.pickStep = self.pickStep == .lpn ? .sku : .lpn
+//                    })
+//                    {
+//                        Text("Scan Sim")
+//                    }
+//                }
+//            } else {
+//                VStack {
+//                    Spacer()
+//                    TextField($username, placeholder: Text("username"))
+//                    SecureField($password, placeholder: Text("password"))
+//                    Button(action: {
+//                        self.loading.toggle()
+//                        self.delegate?.loginPressed(username: self.username, password: self.password, completion: { (success, pick) in
+//                            self.afterLogin(success: success, pick: pick)
+//                        })
+//                    })
+//                    {
+//                        Text(self.loading ? "Logging in..." : "Login")
+//                    }
+//                    .disabled(self.loading)
+//                    .opacity(self.loading ? 0.5 : 1)
+//                }
+//            }
+//        }
+        
         ZStack {
-            if isLoggedIn {
-                PickView(pick: $pick, pickStep: $pickStep)
-                if UI_TESTING {
-                    Button(action: {
-                        self.pickStep = self.pickStep == .lpn ? .sku : .lpn
+            VStack {
+                Spacer()
+                TextField($username, placeholder: Text("username"))
+                SecureField($password, placeholder: Text("password"))
+                Button(action: {
+                    self.loading.toggle()
+                    self.delegate?.loginPressed(username: self.username, password: self.password, completion: { (success, pick) in
+                        self.afterLogin(success: success, pick: pick)
                     })
-                    {
-                        Text("Scan Sim")
-                    }
-                }
-            } else {
-                VStack {
-                    Spacer()
-                    TextField($username, placeholder: Text("username"))
-                    SecureField($password, placeholder: Text("password"))
-                    Button(action: {
-                        self.loading.toggle()
-                        self.delegate?.loginPressed(username: self.username, password: self.password, completion: { (success, pick) in
-                            self.afterLogin(success: success, pick: pick)
-                        })
-                    })
-                    {
-                        Text(self.loading ? "Logging in..." : "Login")
+                })
+                {
+                    Text(self.loading ? "Logging in..." : "Login")
                     }
                     .disabled(self.loading)
                     .opacity(self.loading ? 0.5 : 1)
-                }
             }
         }
+        
     }
     
     private func afterLogin(success: Bool, pick: PickModel?) {
