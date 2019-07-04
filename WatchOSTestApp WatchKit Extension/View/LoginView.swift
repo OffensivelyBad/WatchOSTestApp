@@ -10,6 +10,7 @@ import SwiftUI
 
 protocol LoginDelegate {
     func loginPressed(username: String, password: String, completion: @escaping (_ success: Bool, _ pick: PickModel?) -> Void)
+    func bluetoothScanPressed()
 }
 
 enum PickStep {
@@ -65,6 +66,12 @@ struct LoginView : View {
                 TextField($username, placeholder: Text("username"))
                 SecureField($password, placeholder: Text("password"))
                 Button(action: {
+                    self.delegate?.bluetoothScanPressed()
+                })
+                {
+                    Text("Scan Bluetooth")
+                }
+                Button(action: {
                     self.loading.toggle()
                     self.delegate?.loginPressed(username: self.username, password: self.password, completion: { (success, pick) in
                         self.afterLogin(success: success, pick: pick)
@@ -72,9 +79,9 @@ struct LoginView : View {
                 })
                 {
                     Text(self.loading ? "Logging in..." : "Login")
-                    }
-                    .disabled(self.loading)
-                    .opacity(self.loading ? 0.5 : 1)
+                }
+                .disabled(self.loading)
+                .opacity(self.loading ? 0.5 : 1)
             }
         }
         
