@@ -127,10 +127,12 @@ extension HostingController: CBCentralManagerDelegate {
         print(peripheral.services)
         print(advertisementData)
         print(RSSI)
-        self.scannerPeripheral = peripheral
-        self.scannerPeripheral.delegate = self
-        self.centralManager.stopScan()
-        self.centralManager.connect(self.scannerPeripheral)
+        if peripheral.name ?? "" == "KDC270[006045]" {
+            self.scannerPeripheral = peripheral
+            self.scannerPeripheral.delegate = self
+            self.centralManager.stopScan()
+            self.centralManager.connect(self.scannerPeripheral)
+        }
     }
 
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
