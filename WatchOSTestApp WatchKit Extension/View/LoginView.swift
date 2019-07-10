@@ -63,7 +63,7 @@ struct LoginView : View {
                             Text(self.loading ? "Logging in..." : "Login")
                         }
                         .disabled(self.loading)
-                            .opacity(self.loading ? 0.5 : 1)
+                        .opacity(self.loading ? 0.5 : 1)
                     }
                 }
             }

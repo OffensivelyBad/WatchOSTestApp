@@ -22,15 +22,43 @@ class HostingController : WKHostingController<LoginView> {//}, CBPeripheralDeleg
     var centralManager: CBCentralManager!
     var scannerPeripheral: CBPeripheral!
     
+    // Background session
+    var session = WKExtendedRuntimeSession()
+    
     override func willActivate() {
         super.willActivate()
         
         self.dataManager = self.UI_TESTING ? MockDataManager() : DataManager()
         self.setupBluetooth()
+        self.setupBackgroundSession()
     }
     
     override var body: LoginView {
         return LoginView(delegate: self)
+    }
+    
+}
+
+extension HostingController: WKExtendedRuntimeSessionDelegate {
+    
+    func setupBackgroundSession() {
+        self.session = WKExtendedRuntimeSession()
+        self.session.delegate = self
+        self.session.start()
+    }
+    
+    func extendedRuntimeSessionDidStart(_ extendedRuntimeSession: WKExtendedRuntimeSession) {
+        print("background session did start")
+    }
+    
+    func extendedRuntimeSessionWillExpire(_ extendedRuntimeSession: WKExtendedRuntimeSession) {
+        print("background session is ending")
+    }
+    
+    func extendedRuntimeSession(_ extendedRuntimeSession: WKExtendedRuntimeSession, didInvalidateWith reason: WKExtendedRuntimeSessionInvalidationReason, error: Error?) {
+        print("background session ended")
+        // Start the session again
+        self.setupBackgroundSession()
     }
     
 }
