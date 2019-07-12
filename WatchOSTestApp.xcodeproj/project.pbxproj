@@ -22,6 +22,7 @@
 		299CD9A822A8632F00BA2C5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 299CD9A722A8632F00BA2C5A /* Assets.xcassets */; };
 		299CD9AB22A8632F00BA2C5A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 299CD9AA22A8632F00BA2C5A /* Preview Assets.xcassets */; };
 		299CD9BC22A8643000BA2C5A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299CD9BB22A8643000BA2C5A /* LoginView.swift */; };
+		29E7856222D91E9A00858619 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7856122D91E9A00858619 /* ContainerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		299CD9AC22A8632F00BA2C5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		299CD9AD22A8632F00BA2C5A /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		299CD9BB22A8643000BA2C5A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		29E7856122D91E9A00858619 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			children = (
 				299CD9BB22A8643000BA2C5A /* LoginView.swift */,
 				2930D47422AC22E20069A441 /* PickView.swift */,
+				29E7856122D91E9A00858619 /* ContainerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29E7856222D91E9A00858619 /* ContainerView.swift in Sources */,
 				299CD9BC22A8643000BA2C5A /* LoginView.swift in Sources */,
 				293A6F1022AE0D4D00081ABA /* MockDataManager.swift in Sources */,
 				293A6F0E22AE0D4300081ABA /* DataManager.swift in Sources */,

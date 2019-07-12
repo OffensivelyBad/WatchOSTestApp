@@ -11,10 +11,9 @@ import Foundation
 import SwiftUI
 import CoreBluetooth
 
-class HostingController : WKHostingController<LoginView> {//}, CBPeripheralDelegate, CBCentralManagerDelegate {
+class HostingController : WKHostingController<ContainerView> {
     
     let UI_TESTING = true
-    
     var dataManager: DataManagerProtocol!
     
     // Bluetooth
@@ -33,8 +32,8 @@ class HostingController : WKHostingController<LoginView> {//}, CBPeripheralDeleg
         self.setupBackgroundSession()
     }
     
-    override var body: LoginView {
-        return LoginView(delegate: self)
+    override var body: ContainerView {
+        return ContainerView(uiTesting: self.UI_TESTING, delegate: self)
     }
     
 }

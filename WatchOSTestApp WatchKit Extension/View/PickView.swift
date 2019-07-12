@@ -8,6 +8,10 @@
 
 import SwiftUI
 
+enum PickStep {
+    case lpn, sku
+}
+
 struct PickView : View {
     @Binding var pick: PickModel
     @Binding var pickStep: PickStep
