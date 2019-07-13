@@ -29,7 +29,7 @@ class HostingController : WKHostingController<ContainerView> {
         
         self.dataManager = self.UI_TESTING ? MockDataManager() : DataManager()
         self.setupBluetooth()
-        self.setupBackgroundSession()
+//        self.setupBackgroundSession()
     }
     
     override var body: ContainerView {

@@ -15,22 +15,14 @@ struct ContainerView : View {
     @State private var username: String = ""
     @State private var password: String = ""
     @State private var loading: Bool = false
-    @State private var isLoggedIn: Bool = false
-    @State private var pick: PickModel = PickModel(lpn: "", sku: "", location: "")
+    @State private var isLoggedIn: Bool = true
+    @State private var pick: PickModel = PickModel(lpn: "LPN1234567890", sku: "12345-67-890", location: "A15-01-1-1A")
     @State private var pickStep: PickStep = .lpn
     
     var body: some View {
         ZStack {
             if isLoggedIn {
-                PickView(pick: $pick, pickStep: $pickStep)
-                if self.uiTesting {
-                    Button(action: {
-                        self.pickStep = self.pickStep == .lpn ? .sku : .lpn
-                    })
-                    {
-                        Text("Scan Sim")
-                    }
-                }
+                PickView(uiTesting: uiTesting, pick: $pick, pickStep: $pickStep, isLoggedIn: $isLoggedIn)
             } else {
                 LoginView(delegate: self.delegate, username: $username, password: $password, loading: $loading, isLoggedIn: $isLoggedIn, pick: $pick, pickStep: $pickStep)
             }
