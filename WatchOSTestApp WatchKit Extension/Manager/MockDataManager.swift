@@ -16,10 +16,40 @@ struct MockDataManager: DataManagerProtocol {
         }
     }
     
-    func getNextPick(completion: @escaping (_ pick: PickModel?) -> Void) {
+    func getPickList(completion: @escaping (_ success: Bool) -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            completion(true)
+        }
+    }
+    
+    func getNextPick(completion: @escaping (_ success: Bool, _ pick: PickModel?) -> Void) {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
             let pick = PickModel(lpn: "LPN1234567890", sku: "12345-67-890", location: "A88-08-8-8A")
-            completion(pick)
+            completion(true, pick)
+        }
+    }
+    
+    func pickExists(pickID: Int, completion: @escaping (_ success: Bool, _ exists: Bool) -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            completion(true, true)
+        }
+    }
+    
+    func pick(pick: PickModel, completion: @escaping (_ success: Bool) -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            completion(true)
+        }
+    }
+    
+    func skipPick(pickID: Int, location: String, completion: @escaping (_ success: Bool) -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            completion(true)
+        }
+    }
+    
+    func donePicking(completion: @escaping (_ success: Bool) -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            completion(true)
         }
     }
     
