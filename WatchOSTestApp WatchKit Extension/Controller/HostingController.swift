@@ -78,7 +78,7 @@ extension HostingController: LoginDelegate {
         
         let loginCompletion: (Bool) -> Void = { success in
             if success {
-                self.dataManager.getNextPick { pick in
+                self.dataManager.getNextPick { (success, pick) in
                     pickCompletion(pick)
                 }
             } else {

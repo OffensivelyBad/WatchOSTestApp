@@ -57,3 +57,23 @@ struct PickView : View {
         }
     }
 }
+
+#if DEBUG
+struct PickView_Previews : PreviewProvider {
+    @State static var pick = PickModel(lpn: "LPN1234567890", sku: "098765-43-321", location: "B15-99-9-9A")
+    @State static var pickStep = PickStep.lpn
+    @State static var loggedIn = true
+    
+    static var previews: some View {
+        Group {
+            PickView(uiTesting: true, pick: $pick, pickStep: $pickStep, isLoggedIn: $loggedIn)
+                .previewDevice("Apple Watch Series 4 - 44mm")
+                .previewDisplayName("Apple Watch Series 4 - 44mm")
+            
+            PickView(uiTesting: true, pick: $pick, pickStep: $pickStep, isLoggedIn: $loggedIn)
+                .previewDevice("Apple Watch Series 4 - 40mm")
+                .previewDisplayName("Apple Watch Series 4 - 40mm")
+        }
+    }
+}
+#endif

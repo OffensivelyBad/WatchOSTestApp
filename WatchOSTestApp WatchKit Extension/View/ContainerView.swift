@@ -29,11 +29,19 @@ struct ContainerView : View {
         }
     }
 }
-//
-//#if DEBUG
-//struct ContainerView_Previews : PreviewProvider {
-//    static var previews: some View {
-//        ContainerView()
-//    }
-//}
-//#endif
+
+#if DEBUG
+struct ContainerView_Previews : PreviewProvider {
+    static var previews: some View {
+        Group {
+            ContainerView(uiTesting: true, delegate: nil)
+                .previewDevice("Apple Watch Series 4 - 44mm")
+                .previewDisplayName("Apple Watch Series 4 - 44mm")
+            
+            ContainerView(uiTesting: true, delegate: nil)
+                .previewDevice("Apple Watch Series 4 - 40mm")
+                .previewDisplayName("Apple Watch Series 4 - 40mm")
+        }
+    }
+}
+#endif
