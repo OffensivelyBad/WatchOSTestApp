@@ -33,6 +33,12 @@ struct PickView : View {
                     .color(pickStep == .lpn ? .yellow : .blue)
                     .frame(minWidth: nil, idealWidth: nil, maxWidth: nil, minHeight: 60, idealHeight: nil, maxHeight: 60, alignment: .center)
                     .minimumScaleFactor(0.5)
+                    .gesture(
+                        LongPressGesture()
+                            .onEnded { _ in
+                                print("long pressed")
+                        }
+                    )
                 Spacer()
                 Rectangle()
                     .frame(width: 200, height: 1, alignment: .center)
