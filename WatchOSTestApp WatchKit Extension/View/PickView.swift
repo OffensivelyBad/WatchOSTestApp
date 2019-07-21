@@ -23,13 +23,20 @@ struct PickView : View {
             VStack {
                 Text(pick.location)
                     .font(.system(size: 25))
+                    .minimumScaleFactor(0.5)
+                Rectangle()
+                    .frame(width: 200, height: 1, alignment: .center)
+                    .foregroundColor(Color.gray)
                 Spacer()
                 Text(pickStep == .lpn ? pick.shortLPN : "Scan SKU")
                     .font(.system(size: pickStep == .lpn ? 80 : 40))
                     .color(pickStep == .lpn ? .yellow : .blue)
-                    .frame(minWidth: nil, idealWidth: nil, maxWidth: nil, minHeight: 90, idealHeight: nil, maxHeight: 90, alignment: .center)
+                    .frame(minWidth: nil, idealWidth: nil, maxWidth: nil, minHeight: 60, idealHeight: nil, maxHeight: 60, alignment: .center)
                     .minimumScaleFactor(0.5)
                 Spacer()
+                Rectangle()
+                    .frame(width: 200, height: 1, alignment: .center)
+                    .foregroundColor(Color.gray)
                 Text(pickStep == .lpn ? pick.lpn : pick.sku)
                     .font(.system(size: 22))
                     .minimumScaleFactor(0.5)
@@ -70,9 +77,9 @@ struct PickView_Previews : PreviewProvider {
                 .previewDevice("Apple Watch Series 4 - 44mm")
                 .previewDisplayName("Apple Watch Series 4 - 44mm")
             
-            PickView(uiTesting: true, pick: $pick, pickStep: $pickStep, isLoggedIn: $loggedIn)
-                .previewDevice("Apple Watch Series 4 - 40mm")
-                .previewDisplayName("Apple Watch Series 4 - 40mm")
+//            PickView(uiTesting: true, pick: $pick, pickStep: $pickStep, isLoggedIn: $loggedIn)
+//                .previewDevice("Apple Watch Series 4 - 40mm")
+//                .previewDisplayName("Apple Watch Series 4 - 40mm")
         }
     }
 }
