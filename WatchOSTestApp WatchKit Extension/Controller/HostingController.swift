@@ -151,7 +151,7 @@ extension HostingController: CBCentralManagerDelegate {
 
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         print(peripheral)
-        print(peripheral.services)
+        print(peripheral.services as Any)
         print(advertisementData)
         print(RSSI)
         if peripheral.name ?? "" == "KDC270[006045]" {

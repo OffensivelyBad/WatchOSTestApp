@@ -30,7 +30,7 @@ struct PickView : View {
                 Spacer()
                 Text(pickStep == .lpn ? pick.shortLPN : "Scan SKU")
                     .font(.system(size: pickStep == .lpn ? 80 : 40))
-                    .color(pickStep == .lpn ? .yellow : .blue)
+                    .foregroundColor(pickStep == .lpn ? .yellow : .blue)
                     .frame(minWidth: nil, idealWidth: nil, maxWidth: nil, minHeight: 60, idealHeight: nil, maxHeight: 60, alignment: .center)
                     .minimumScaleFactor(0.5)
                     .gesture(

@@ -27,8 +27,8 @@ struct LoginView : View {
         ScrollView {
             VStack {
                 Spacer()
-                TextField($username, placeholder: Text("username"))
-                SecureField($password, placeholder: Text("password"))
+                TextField("username", text: $username)
+                SecureField("password", text: $password)
                 Button(action: {
                     self.delegate?.bluetoothScanPressed()
                 })
@@ -45,7 +45,7 @@ struct LoginView : View {
                     Text(self.loading ? "Logging in..." : "Login")
                 }
                 .disabled(self.loading)
-                .opacity(self.loading ? 0.5 : 1)
+                .opacity(self.loading ? 0.5 : 1.0)
             }
         }
     }
